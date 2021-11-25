@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block mainmenu %}
+{% endblock mainmenu %}
+{% block nav %}
+    <nav class="sticky">
+        <ul>
+            <li><a href="{% url 'main_page' %}">Home..</a></li>
+            {% if perms.survay.view_projects %}
+                <li><a href="{% url 'projects_list' %}">Проекты</a></li>
+            {% endif %}
+            <li><a href="{% url 'addresses_list' %}">Адреса</a></li>
+            <li><a href="{% url 'objects_list' %}">Объекты</a></li>
+            <li><a href="{% url 'objectspersonals_list' %}">Персонал объектов</a></li>
+
+            <li class="dropdownmy">
+                <a href="javascript:void(0)" class="dropbtnmy" >
+                    Справочники</a>
+                <ul class="dropdownmy-content">
+                  <a href="{% url 'handbookobjects_list'%}">Типы объектов</a>
+                  <a href="{% url 'sprdolgn_list'%}">Должности(специальность)</a>
+                  <a href="{% url 'typestreet_list' %}">Тип улиц</a>
+                </ul>
+            </li>
+            {% if perms.auth.add_user %}
+                <li class="dropdownmy">
+                    <a href="javascript:void(0)" class="dropbtnmy" >
+                        СРМ персонал</a>
+                    <ul class="dropdownmy-content">
+                      <a href="{% url 'crmpersonals_list' 1 %}">СРМ пользователи</a>
+                      <a href="{% url 'crmpersonals_list' 2 %}">СРМ менеджеры</a>
+                    </ul>
+                </li>
+            {% endif %}
+        </ul>
+        {% block heading %}
+        {% endblock %}
+    </nav>
+{% endblock nav %}
+    {% block content %}
+    {% endblock %}
+
+    {% block page_content %}
+    {% endblock %}
+    <br>
+
+</body>
+{% block footer %}
+
+{% endblock footer %}
+
+</html>

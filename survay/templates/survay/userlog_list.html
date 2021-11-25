@@ -1,0 +1,37 @@
+{% extends 'survay/../survay/survaybase.html' %}
+{#{% load django_tables2 %}#}
+{#{% render_table table %}#}
+
+{% block content %}
+
+    <article>
+        <h3>Список пользователей </h3>
+    </article>
+
+
+    <table>
+    {% for el_user in userlog_list %}
+        <tr>
+            <td>
+
+                <h3 class="{{ el_user.date_created|date:'l' }}">
+                    {{ el_user.id }} :
+                    {{ el_user.date_created|date:'Y-m-d H:i' }}
+                </h3>
+                <h2>
+                    <a href="{% url 'userlog_update' el_user.id %}">
+                       {{ el_user.username }}
+                    </a>
+                </h2>
+        </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock content%}
+{% block page_content %}
+<article>
+    <a href="{% url 'userlog_create'%}"><button>Новый пользователь</button>
+    </a>
+</article>
+{% endblock page_content%}
+

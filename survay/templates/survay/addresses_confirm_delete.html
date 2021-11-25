@@ -1,0 +1,16 @@
+{% extends 'survay/../survay/survaybase.html' %}
+{% block heading %}
+{% endblock %}
+
+{% block content %}
+    <form method="post">{% csrf_token %}
+        <p>Удалить запись "{{ object }}"?</p>
+        <input type="submit" class="btn btn-primary" style="display: inline; margin: 1px 1px 10px 20px " value="Ок">
+    </form>
+
+    <a href="{% url 'addresses_list' %}">
+            <button class="btn btn-primary" style="display: inline; margin: 1px 1px 10px 20px ">Отмена</button>
+    </a>
+
+{% endblock content %}
+

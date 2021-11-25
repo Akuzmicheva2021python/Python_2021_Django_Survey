@@ -1,0 +1,187 @@
+label {
+    margin-right: 20px;
+    /*background-color: cornsilk;*/
+    color: darkblue;
+}
+
+ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: darkseagreen;
+    }
+
+li {
+      float: left;
+    }
+
+li a, .dropbtnmy {
+      display: inline-block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+li a:hover, .dropdownmy:hover .dropbtnmy {
+      background-color: royalblue;
+    }
+
+li.dropdownmy {
+      display: inline-block;
+    }
+
+.dropdownmy-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+.dropdownmy-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+.dropdownmy-content a:hover {background-color: #f1f1f1;}
+
+.dropdownmy:hover .dropdownmy-content {
+      display: block;
+    }
+
+.login-div {
+    padding: 0 15px;
+    border: 2px solid darkseagreen;
+    width: auto;
+    max-width: 480px;
+    background-color: lightgoldenrodyellow;
+    margin: 50px auto;
+}
+
+.login-div #header {
+    background-color: darkseagreen;
+    color: lightgoldenrodyellow;
+    margin: 20px auto;
+}
+
+.login-div #header h3 {
+    font-size: 18px;
+    margin: 0;
+    width: auto;
+    text-align: center;
+}
+
+.user-div {
+    padding: 0;
+    width: auto;
+    max-width: max-content;
+    margin: 15px 20px 15px 15px;
+}
+
+/* Form */
+.to-be-changed {
+    color: black;
+}
+
+input[type=checkbox]:checked ~ .to-be-changed {
+    color: red;
+}
+
+.form-my {
+    margin: 10px 1px 10px 20px;
+}
+
+.form-user {
+    margin: 1px 1px 1px 20px;
+}
+
+textarea {
+    padding: 0.5rem 1rem;
+    font-family: sans-serif;
+    width: 50%;
+    display: inline-block;
+    font-size: inherit;
+}
+
+input[type="checkbox"] {
+    font-size: 0.8em;
+    /*min-height: 0.1em;*/
+    padding: 0 0rem;
+    margin: 1px 10px 1px 1px;
+}
+
+input[type="text"] {
+    max-width: 100%;
+    block-size: max-content;
+    width: 70%;
+}
+
+
+.helptext {
+    font-family: "Calibri Light";
+    font-size: 0.7em;
+    display: block;
+}
+
+/* Style the footer */
+.footer {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  height: 50px;
+  padding: 5px 0;
+  z-index: -1;
+}
+
+.head {
+    display: flex;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    background-color: #f1f1f1;
+    border: 3px solid green;
+    padding: 1px;
+    text-align: left;
+     /*z-index: 1;*/
+}
+
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+/*.menumy {*/
+/*    position: fixed; !* Фиксированное положение *!*/
+/*    right: 0; !* Расстояние от правого края окна браузера *!*/
+/*    top: 70px; !* Расстояние сверху *!*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 60px;*/
+/*    padding: 10px; !* Поля вокруг текста *!*/
+/*    background: #ffe; !* Цвет фона *!*/
+/*    text-align: left;*/
+/*   }*/
+
+/*.menumy-2 {*/
+/*    position: fixed; !* Фиксированное положение *!*/
+/*    !*right: 0; !* Расстояние от правого края окна браузера *!*!*/
+/*    top: 100px; !* Расстояние сверху *!*/
+/*    left: 0;*/
+/*    width: auto;*/
+/*    height: 60px;*/
+/*    padding: 10px; !* Поля вокруг текста *!*/
+/*    background: gainsboro; !* Цвет фона *!*/
+/*    !*border: 3px solid green; !* Параметры рамки *!*!*/
+/*    !*text-align: left;*!*/
+/*    z-index: 1;*/
+/*   }*/

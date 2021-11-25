@@ -1,0 +1,48 @@
+{% extends 'survay/../survay/survaybase.html' %}
+
+{% block heading %}
+    <h3>Реквизиты пользователя
+    </h3>
+    <h3 hidden>{{ filter_name }}</h3>
+{% endblock %}
+{% block content %}
+    <form class="form-user" method="post">
+        {% csrf_token %}
+        <div class="user-div">
+            <p>Дата регистрации пользователя: {{ object.date_joined|date:'Y-m-d H:i' }}  </p>
+        </div>
+        <div class="user-div">
+            <label for="username">Логин :</label>
+            <input type="text" name="username" value="{{ object.username }}" size="80">
+        </div>
+        <div class="user-div">
+            <label>Фамилия: </label>
+            <input type="text" name="last_name" value="{{ object.last_name }}">
+        </div>
+        <div class="user-div">
+            <label>Имя: </label>
+            <input type="text" name="first_name" value="{{ object.first_name }}">
+        </div>
+        <div class="user-div">
+            <label>Адрес эл.почты: </label>
+            <input type="text" name="email" value="{{ object.email }}">
+        </div>
+        <div class="user-div">
+            <label>Активность: </label>
+            <input type="checkbox" name="is_active" value="{{ object.is_active }}" checked>
+        </div>
+        <div class="user-div">
+            <p>Дата входа в систему: {{ object.last_login|date:'Y-m-d H:i' }}  </p>
+        </div>
+        <div class="user-div">
+            <input type="submit" class="btn btn-primary" style="display: inline" value="Сохранить">
+        </div>
+    </form>
+    <div style="display: inline-block">
+        <a href="{% url 'crmpersonals_list' filter_name %}">
+                <button class="btn btn-primary">
+                    Вернуться к списку
+                </button>
+        </a>
+    </div>
+{% endblock content %}

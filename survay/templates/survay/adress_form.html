@@ -1,0 +1,82 @@
+{% extends 'survay/../survay/survaybase.html' %}
+{% load bootstrap3 %}
+{% block heading %}
+    <h3 style="background-color: cornsilk; margin-top: 0; height: border-box">
+        Ответ: status_code : {{ res_status }}
+    </h3>
+{% endblock %}
+
+{% block content %}
+    <form method="post" name="tabaddress" action="addresses_create" novalidate>
+        {% csrf_token %}
+        <table class="table table-bordered table-hover" id="result_list">
+          <thead style="background-color: lightyellow">
+            <tr>
+                <th scope="col" class="checkbox-column">
+                    <div class="text">
+                        <span>
+                            <input type="checkbox">
+                        </span>
+                    </div>
+                    <div class="clear"></div>
+                </th>
+                <th scope="col" class="sorted">
+                    <div class="text">Адресная строка</div>
+                    <div class="clear"></div>
+                </th>
+                <th hidden scope="col">
+                    <div class="text">json строка</div>
+                    <div class="clear"></div>
+                </th>
+                <th SCOPE="col" class="sorted">
+                    <div class="text">Координаты</div>
+                    <div class="clear"></div>
+                </th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {% for num_el, el, edl, epl in res_text %}
+                <tr>
+                    <td class="action-checkbox">
+
+                        <input type="radio" name="_selected_action"
+                               value="{{ num_el }};{{ epl }};{{ edl }}" class="action-select">
+
+                    </td>
+                    <td class="adr-str">{{ el }}</td>
+                    <td hidden>
+                        {{ edl }}
+                    </td>
+                    <td>{{ epl }} </td>
+                  </tr>
+
+            {% endfor %}
+
+
+          </tbody>
+        </table>
+
+        <button type="submit" class="button" id="h1" name="btn" value="0">Сохранить</button>
+    </form>
+    <br>
+
+    <a href="{% url url_name %}">
+            <button class="btn btn-primary" style="margin: 1px 1px 10px 100px ">На страницу поиска</button>
+    </a>
+
+{% endblock content %}
+
+{% block footer %}
+<script>
+  result_list.onclick = function(event) {
+      let tdid = event.target;
+      let td = event.target.closest('td');
+      if (!td) return;
+      if (!result_list.contains(td)) return;
+      if (!td.classList.contains('action-checkbox')) return;
+      chck = tdid.checked;
+      td.closest('tr').classList.toggle("selected", tdid.checked);
+    };
+</script>
+{% endblock footer %}

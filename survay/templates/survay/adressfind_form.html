@@ -1,0 +1,31 @@
+{% extends 'survay/../survay/survaybase.html' %}
+{% block heading %}
+    <h3 style="background-color: cornsilk; margin-top: 0; height: border-box">
+        {{ title_list }} Поиск адреса
+    </h3>
+{% endblock %}
+
+{% block content %}
+    <form class="form-my" method="post" action="external/view" id="formdata1" >
+        {% csrf_token %}
+
+        <label for="address">
+            Адресная строка (для поиска)
+        </label>
+        <input type="text" id="address" name="address" size="80">
+        <p>
+        <span>Например: Москва,Клары Цеткин,10 или Тверская+6</span>
+        </p>
+
+        <button class="btn btn-primary" type="submit" id="btnfindadr" >
+            Send
+        </button>
+    </form>
+    <br>
+
+    <a href="{% url url_name %}">
+            <button class="btn btn-primary" style="margin: 1px 1px 10px 20px ">На главную</button>
+    </a>
+
+{% endblock content %}
+

@@ -1,0 +1,27 @@
+{% extends 'survay/../survay/survaybase.html' %}
+{% block heading %}
+    <h3 style="background-color: cornsilk; margin-top: 0; height: border-box">
+        {{ title_list }} Реквизиты адреса
+    </h3>
+{% endblock %}
+
+{% block content %}
+    <form class="form-my" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+
+        <input type="submit" value="Сохранить">
+    </form>
+    <br>
+    {% if survey %}
+        <a href="{% url url_name %}">
+            <button class="btn btn-primary" style="margin: 1px 1px 10px 100px ">На главную</button>
+        </a>
+    {% else %}
+        <a href="{% url url_name %}">
+            <button class="btn btn-primary" style="margin: 1px 1px 10px 100px ">Отменить</button>
+        </a>
+    {% endif %}
+{% endblock content %}

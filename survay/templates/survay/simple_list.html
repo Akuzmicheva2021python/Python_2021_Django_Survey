@@ -1,0 +1,55 @@
+{% extends 'survay/../survay/survaybase.html' %}
+{% load render_table from django_tables2 %}
+{% load querystring from django_tables2 %}
+{% load bootstrap3 %}
+
+{% block heading %}
+    <nav class="head">
+        <ul>
+            <li><h4>{{ title_list }}</h4></li>
+
+            {% if filter_name %}
+              <li><a href="{% url url_name_create filter_name %}"
+                     style="height: 48px; padding-top: 10px;">
+                Добавить (с фильтром) </a>
+              </li>
+            {% else %}
+            <li><a href="{% url url_name_create %}" style="height: 48px; padding-top: 10px;">
+              Добавить </a>
+            </li>
+            {% endif %}
+
+            {% if export %}
+            <li><a href="{% querystring '_export'='xlsx' %}"
+                   style="height: 48px; padding-top: 10px;">
+                Экспорт в Excel</a>
+            </li>
+            {% endif %}
+
+            {% if filter_btn %}
+            <li><button id="btn"
+                        style="height:40px; background-color: darkseagreen; margin-left: 20px">
+                Фильтры</button>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endblock heading %}
+
+{% block content %}
+    {% if filter %}
+        <form action="" method="get" class="form form-inline" style="background-color: cornsilk" id="h1" hidden>
+            {% bootstrap_form filter.form layout='inline' %}
+            {% bootstrap_button 'Фильтр' %}
+        </form>
+    {% endif %}
+    {% render_table table 'django_tables2/bootstrap.html' %}
+{% endblock content%}
+
+{% block footer %}
+<script>
+    btn.addEventListener('click', function () {
+        h1.hidden = !h1.hidden;
+        }, false);
+</script>
+{% endblock footer %}

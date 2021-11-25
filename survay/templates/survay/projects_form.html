@@ -1,0 +1,47 @@
+{% extends 'survay/../survay/survaybase.html' %}
+{% block heading %}
+    <h3 style="background-color: cornsilk; margin-top: 0; height: border-box">
+        {{ title_list }} Реквизиты
+    </h3>
+    <h3 hidden>{{ filter_name }}</h3>
+{% endblock %}
+
+{% block content %}
+    <form class="form-my" method="post">
+        {% csrf_token %}
+{#        <table>#}
+{#            <tbody style="display:table">#}
+        {{ form.as_p }}
+{#            </tbody>#}
+{#        </table>#}
+        <input type="submit" class="btn btn-primary" style="display: inline" value="Сохранить">
+    </form>
+
+    <div style="display: inline">
+            {% if url_del_name %}:
+                <a href='{% url url_del_name object.pk %}'>
+                <button class="btn btn-primary"
+                >Удалить</button>
+                </a>
+            {% endif %}
+            {% if change_pass %}:
+                <a href='{% url change_pass filter_name object.pk %}'>
+                <button class="btn btn-primary"
+                >Смена пароля</button>
+                </a>
+            {% endif %}
+            {% if filter_name %}
+                <a href="{% url url_name filter_name%}">
+                    <button class="btn btn-primary">
+                        Вернуться к списку
+                    </button>
+                </a>
+            {% else %}
+                <a href="{% url url_name %}">
+                    <button class="btn btn-primary"
+                    >Отменить</button>
+                </a>
+            {% endif %}
+    </div>
+
+{% endblock content %}
