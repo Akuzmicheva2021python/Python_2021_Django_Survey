@@ -147,10 +147,10 @@ USE_TZ = True
 # Геолокатор
 
 API_URL = env("API_URL")
-    # str('https://geocode-maps.yandex.ru/1.x')
+    
 
 API_KEY_GEO = env("API_KEY_GEO")
-    # str('697fce13-7288-46a3-b947-630fcc02474d')
+   
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
