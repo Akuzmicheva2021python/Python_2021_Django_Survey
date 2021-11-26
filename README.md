@@ -19,8 +19,10 @@
 
 **Тестовый вариант проекта** для демонстарации заказчику развернут на сайте <https://django-survey-231121.herokuapp.com/>
 
-Например: как происходит работа по добавлению адреса:
+Например: как происходит работа по добавлению адреса: 
 ![Gif of address](https://github.com/Akuzmicheva2021python/Python_2021_Django_Survey/tree/main/doc/survey_address_maket.gif)
+и заполнение таблиц проектов: 
+![Gif of address](https://github.com/Akuzmicheva2021python/Python_2021_Django_Survey/tree/main/doc/survey-new-maket.gif)
 
 Для оценки полученного варианта работы можно посмотреть запись:
 ## Информация
